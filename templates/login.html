@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Sign in · DemoShop{% endblock %}
+{% block content %}
+  <h1>DemoShop</h1>
+  <p class="subtitle">Sign in to make a payment.</p>
+
+  {% if error %}
+    <div class="error">{{ error }}</div>
+  {% endif %}
+
+  <form method="post" action="{{ url_for('login') }}">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" autocomplete="username" required>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" autocomplete="current-password" required>
+
+    <button type="submit">Sign in</button>
+  </form>
+
+  <p class="hint">Demo credentials: {{ demo_username }} / {{ demo_password }}</p>
+{% endblock %}
